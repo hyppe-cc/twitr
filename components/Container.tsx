@@ -1,9 +1,7 @@
-import { SafeAreaView } from 'react-native';
+import { useWindowDimensions, View, ViewProps } from 'react-native';
 
-export const Container = ({ children }: { children: React.ReactNode }) => {
-  return <SafeAreaView className={styles.container}>{children}</SafeAreaView>;
-};
+export const Container = ({ style, ...props }: ViewProps) => {
+  const { width, height } = useWindowDimensions();
 
-const styles = {
-  container: 'flex flex-1 m-6',
+  return <View style={[{ position: 'absolute', width, height }, style]} {...props} />;
 };

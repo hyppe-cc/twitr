@@ -1,6 +1,6 @@
-import { Tabs } from 'expo-router';
-
+/* this icon did not use the colorClassName Context */
 import Icon from '@expo/vector-icons/Ionicons';
+import { Tabs } from 'expo-router';
 
 export default function TabsLayout() {
   return (

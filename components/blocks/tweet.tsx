@@ -5,15 +5,17 @@ import { cssInterop } from 'nativewind';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-    NativeSyntheticEvent,
-    Text,
-    TextLayoutEventData,
-    TextProps,
-    TouchableOpacity,
-    View,
+  NativeSyntheticEvent,
+  TextLayoutEventData,
+  TextProps,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import Button from '~/components/ui/button';
+import { Text } from '~/components/ui/color';
 
 import Icon from '~/components/ui/icon';
+import { Muted, P } from '~/components/ui/typography';
 import { TTweet } from '~/types/tweet';
 
 const StyledImage = cssInterop(Image, {
@@ -54,13 +56,13 @@ const Body = memo(({ children, ...props }: TextProps) => {
 
   return (
     <>
-      <Text onTextLayout={onTextLayout} numberOfLines={numberOfLines} {...props}>
+      <P onTextLayout={onTextLayout} numberOfLines={numberOfLines} {...props}>
         {children}
-      </Text>
+      </P>
 
       {isTextExpanded && (
         <TouchableOpacity onPress={() => toggle()}>
-          <Text>{numberOfLines ? t('viewMore') : t('viewLess')}</Text>
+          <P>{numberOfLines ? t('viewMore') : t('viewLess')}</P>
         </TouchableOpacity>
       )}
     </>
@@ -94,25 +96,39 @@ export default function Tweet({ content, user, timestamp, id }: TTweet) {
                   },
                 });
               }}>
-              <Text className="font-semibold">{user.display_name}</Text>
+              <P className="font-semibold">{user.display_name}</P>
             </TouchableOpacity>
-            <Text className="text-gray-800">
+            <Muted>
               {`@${user.username}`}
               {' - '}
               {formatDistanceToNow(timestamp, { addSuffix: false })}
-            </Text>
+            </Muted>
           </View>
 
           <Body>{content}</Body>
 
           {/* Footer */}
-          <View className="flex flex-row justify-between border border-red-500">
-            <Icon name="chatbubble-outline" />
-            <Icon name="repeat-outline" />
-            <Icon name="heart-outline" />
-            <Icon name="bar-chart-outline" />
-            <Icon name="bookmark-outline" />
-            <Icon name="share-outline" />
+          <View className="flex flex-row justify-between">
+            {/* Use color context to inherit wall color, for example for buttons. */}
+            <Button>
+              <Icon name="chatbubble-outline" />
+            </Button>
+            <Button variant="desctructive">
+              <Icon name="repeat-outline" />
+            </Button>
+            <Button className="text-blue-500 dark:text-blue-400">
+              <Icon name="heart-outline" />
+            </Button>
+            <Button variant="desctructive">
+              <Icon name="bar-chart-outline" />
+            </Button>
+            <Button variant="desctructive">
+              <Icon name="bookmark-outline" />
+              <Text>Hola</Text>
+            </Button>
+            <Button>
+              <Icon name="share-outline" />
+            </Button>
           </View>
         </View>
       </View>

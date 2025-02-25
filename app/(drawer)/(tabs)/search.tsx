@@ -1,15 +1,14 @@
-import { Stack, Link } from 'expo-router';
-import { Text } from 'react-native';
+import { Stack } from 'expo-router';
+
 import { Container } from '~/components/Container';
-
-
+import { P } from '~/components/ui/typography';
 
 export default function Home() {
   return (
     <>
       <Stack.Screen options={{ title: 'Home' }} />
       <Container>
-        <Text>hola</Text>
+        <P>hola</P>
       </Container>
     </>
   );

@@ -3,7 +3,7 @@ import { useTheme } from '@react-navigation/native';
 import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useCallback } from 'react';
-import { LayoutChangeEvent, Text, View } from 'react-native';
+import { LayoutChangeEvent, View } from 'react-native';
 import Animated, {
   Extrapolation,
   interpolate,
@@ -12,6 +12,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import Image from '~/components/ui/image';
+import { P } from '~/components/ui/typography';
 import { useTabs } from '~/providers/tabs-provider';
 import { TUser } from '~/types/tweet';
 
@@ -67,21 +68,21 @@ export default function ProfileHeader({
 
       <View className="gap-2 p-4">
         <View>
-          <Text className="text-2xl font-semibold">{user.display_name}</Text>
-          <Text className="text-gray-800">@{user.username}</Text>
+          <P className="text-2xl font-semibold">{user.display_name}</P>
+          <P className="text-gray-800">@{user.username}</P>
         </View>
 
         <View className="flex-row gap-2">
-          <Text>
-            followers: <Text className="font-semibold">{user.followers_count}</Text>
-          </Text>
-          <Text>
-            following: <Text className="font-semibold">{user.followers_count}</Text>
-          </Text>
+          <P>
+            followers: <P className="font-semibold">{user.followers_count}</P>
+          </P>
+          <P>
+            following: <P className="font-semibold">{user.followers_count}</P>
+          </P>
         </View>
 
         <View>
-          <Text className="font-medium">{user.bio}</Text>
+          <P className="font-medium">{user.bio}</P>
         </View>
       </View>
 

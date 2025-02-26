@@ -11,9 +11,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Button from '~/components/ui/button';
-import { Text } from '~/components/ui/color';
 
+import Button from '~/components/ui/button';
 import Icon from '~/components/ui/icon';
 import { Muted, P } from '~/components/ui/typography';
 import { TTweet } from '~/types/tweet';
@@ -113,18 +112,17 @@ export default function Tweet({ content, user, timestamp, id }: TTweet) {
             <Button>
               <Icon name="chatbubble-outline" />
             </Button>
-            <Button variant="desctructive">
+            <Button variant="destructive">
               <Icon name="repeat-outline" />
             </Button>
             <Button className="text-blue-500 dark:text-blue-400">
               <Icon name="heart-outline" />
             </Button>
-            <Button variant="desctructive">
+            <Button variant="destructive">
               <Icon name="bar-chart-outline" />
             </Button>
-            <Button variant="desctructive">
+            <Button variant="destructive">
               <Icon name="bookmark-outline" />
-              <Text>Hola</Text>
             </Button>
             <Button>
               <Icon name="share-outline" />

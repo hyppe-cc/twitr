@@ -11,8 +11,8 @@ export default function Layout() {
   const shema = useColorScheme();
 
   return (
-    <ThemeProvider value={shema === 'dark' ? DarkTheme : DefaultTheme}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider value={shema === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack>
           <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
 
@@ -22,7 +22,7 @@ export default function Layout() {
             options={{ headerShown: true, headerTransparent: true }}
           />
         </Stack>
-      </GestureHandlerRootView>
-    </ThemeProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
